@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <component v-for="(item,index) in infos" v-bind:is="item.identifier" :info="item" v-on:clickEvent="clickEvent(index)"></component>
+  <div style="width: 200px;height: 200px">
+    <component
+      v-for="(item,index) in infos" v-bind:is="item.identifier" :info="item" v-on:clickEvent="clickEvent(index)"
+    ></component>
   </div>
 </template>
 
@@ -17,7 +19,8 @@
       }
     },
     mounted () {
-      this.infos = this.server.views(null)
+      this.infos = this.server.list
+      this.server.reloadData(null)
       this.post()
     },
     methods:{
@@ -34,9 +37,7 @@
             var data = response['data']
             if (data['code'] == 1000) {
 
-              this.infos = this.server.views(data)
-
-              // this.infos.splice(index,1)
+              this.server.reloadData(response)
 
             }else {
               alert("失败")
