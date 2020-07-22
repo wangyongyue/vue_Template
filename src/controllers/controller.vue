@@ -20,7 +20,6 @@
     },
     mounted () {
       this.infos = this.server.list
-      this.server.reloadData(null)
       this.post()
     },
     methods:{
@@ -30,7 +29,10 @@
       post(){
         var params = this.server.body()
         var url = this.server.url()
-        if (url.length == 0){return}
+        if (url.length == 0){
+          this.server.reloadData(null)
+          return
+        }
         this.$axios
           .post(url, params)
           .then(response => {
