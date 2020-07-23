@@ -5,7 +5,6 @@
     ></component>
   </div>
 </template>
-
 <script>
 
   export default {
@@ -20,37 +19,12 @@
     },
     mounted () {
       this.infos = this.server.list
-      this.post()
+      this.server.networkRequest()
     },
     methods:{
       clickEvent(index){
         this.server.clickIndex(index)
-      },
-      post(){
-        var params = this.server.body()
-        var url = this.server.url()
-        if (url.length == 0){
-          this.server.reloadData(null)
-          return
-        }
-        this.$axios
-          .post(url, params)
-          .then(response => {
-            var data = response['data']
-            if (data['code'] == 1000) {
-
-              this.server.reloadData(response)
-
-            }else {
-              alert("失败")
-            }
-
-          })
-          .catch(function (error) {
-            alert(error)
-          })
-
-      },
+      }
 
     }
 

@@ -5,18 +5,17 @@
 </template>
 
 <script>
-  import server from '../servers/server'
-
+  import People from '../servers/people'
   export default {
     name: 'Main',
     data () {
       return {
         leftServer:null
       }
-
     },
     created () {
-      this.leftServer = new server()
+      this.leftServer = new People()
+      this.leftServer.that = this
 
     },
     mounted () {

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import server from '../servers/server'
+  import Test from '../servers/test'
 
 export default {
   name: 'HelloWorld',
@@ -17,11 +17,10 @@ export default {
 
   },
   created () {
-    this.leftServer = new server()
-
+    this.leftServer = new Test()
+    this.leftServer.that = this
   },
   mounted () {
-    this.leftServer.that = this
   }
 }
 </script>
