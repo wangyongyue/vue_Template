@@ -25,7 +25,6 @@
       clickEvent(index){
         this.server.clickIndex(index)
       }
-
     }
 
   }

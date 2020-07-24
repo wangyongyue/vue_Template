@@ -1,6 +1,7 @@
 <template>
   <div>
     <controller :server="leftServer"></controller>
+    <div>{{leftServer.name}}</div>
   </div>
 </template>
 

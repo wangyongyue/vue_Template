@@ -13,16 +13,10 @@ function server () {
   this.reloadData = function (response) {
 
     this.list.push({identifier:"people",name:"sdfsfsdfsdf"})
-    this.list.push({identifier:"people",name:"sdfsfsdfsdf"})
-    this.list.push({identifier:"people",name:"sdfsfsdfsdf"})
-    this.list.push({identifier:"people",name:"sdfsfsdfsdf"})
-
   }
-
   this.clickIndex = function (index) {
     console.log(index)
   }
-
   this.networkRequest = function () {
 
     var params = this.body()
