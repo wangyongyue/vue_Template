@@ -1,6 +1,6 @@
 <template>
   <div>
-    <controller :server="leftServer"></controller>
+    <controller :server="leftServer" :infos="leftServer.list"></controller>
     <div>{{leftServer.name}}</div>
   </div>
 </template>
@@ -11,12 +11,12 @@
     name: 'Main',
     data () {
       return {
-        leftServer:null
+        leftServer:new People()
       }
     },
     created () {
-      this.leftServer = new People()
       this.leftServer.that = this
+      this.leftServer.networkRequest()
 
     },
     mounted () {

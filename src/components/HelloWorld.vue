@@ -1,6 +1,6 @@
 <template>
   <div>
-    <controller :server="leftServer"></controller>
+    <controller :server="leftServer" :infos="leftServer.list"></controller>
   </div>
 </template>
 
@@ -12,15 +12,18 @@ export default {
 
   data () {
     return {
-      leftServer:null
+      leftServer: new Test(),
     }
 
   },
   created () {
-    this.leftServer = new Test()
     this.leftServer.that = this
+    this.leftServer.networkRequest()
+
   },
+
   mounted () {
+
   }
 }
 </script>

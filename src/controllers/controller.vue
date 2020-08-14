@@ -10,16 +10,12 @@
   export default {
     name: 'controller',
     props:{
-      server:Object
+      server:Object,
+      infos:Array
     },
     data() {
       return{
-        infos:[]
       }
-    },
-    mounted () {
-      this.infos = this.server.list
-      this.server.networkRequest()
     },
     methods:{
       clickEvent(index){
